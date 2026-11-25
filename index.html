@@ -1,5 +1,415 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Buffalo B's Canyon | Slot UI demo</title><style>
-*{box-sizing:border-box} :root{color-scheme:dark;--bg:#141e2b;--panel:#1b2939;--line:#334252;--green:#88e67e;--gold:#ffda86;--muted:#9aaec0}body{margin:0;background:radial-gradient(ellipse at 50% 0,#2a4050,#101722 70%);color:#f4f7fa;font:15px system-ui,sans-serif;min-height:100vh}button{font:inherit;cursor:pointer;border:0;color:inherit}button:disabled{opacity:.42;cursor:not-allowed}button:focus-visible{outline:3px solid white;outline-offset:3px}.app{max-width:520px;margin:auto;padding:14px 14px 32px}header{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 0 16px}.mark{display:flex;align-items:center;gap:8px;font-size:17px;font-weight:850;letter-spacing:-.5px}.mark span{color:var(--green);font-size:25px}.balance{background:#0d1621;border:1px solid var(--line);border-radius:10px;padding:10px 13px;font-weight:750;font-variant-numeric:tabular-nums}.balance small{color:var(--green);font-size:11px;margin-right:5px}.tag{font-size:10px;letter-spacing:2px;color:var(--muted);font-weight:750;text-align:center;margin-bottom:10px}.game{border:1px solid #a5753f;border-radius:20px;overflow:hidden;background:#32251c;box-shadow:0 12px 40px #0006}.hero{position:relative;overflow:hidden;text-align:center;padding:18px 10px 12px;background:radial-gradient(ellipse at 50% 28%,#ffcc7e 0,#b75c35 36%,#643c36 65%,#231f29 100%)}.hero:before,.hero:after{content:'';position:absolute;bottom:-12px;width:48%;height:75%;background:#352a2a;clip-path:polygon(0 50%,12% 38%,25% 42%,30% 13%,47% 9%,52% 46%,70% 34%,85% 60%,100% 54%,100% 100%,0 100%);opacity:.7}.hero:before{left:0}.hero:after{right:0;transform:scaleX(-1)}.hero>*{position:relative;z-index:1}.buffalo{font-size:57px;line-height:1;filter:drop-shadow(0 4px 5px #49220c)}h1{font:bold 35px/1 Georgia,serif;margin:5px 0;color:#ffdc8e;letter-spacing:1px;text-shadow:0 2px #71350f,0 4px #291b19}.sub{font-size:11px;font-weight:800;letter-spacing:3px;color:#fff0cb}.feature{display:flex;align-items:center;justify-content:space-between;padding:9px 12px;background:#171d21;border-top:1px solid #a5753f;border-bottom:1px solid #a5753f;font-size:11px;letter-spacing:1px;font-weight:800}.feature b{color:var(--gold)}.reels{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;padding:8px;background:linear-gradient(#6e492a,#33231d);position:relative}.reel{display:grid;gap:4px;grid-template-rows:repeat(3,1fr);min-width:0}.cell{aspect-ratio:1/1.06;display:grid;place-items:center;font-size:clamp(25px,9vw,48px);background:radial-gradient(ellipse at 50% 30%,#fff2cc,#e1c49a 75%,#b68b59);border:1px solid #b78d5c;border-radius:7px;box-shadow:inset 0 0 9px #70482366;position:relative;overflow:hidden;line-height:1}.cell .letter{font:bold 1em Georgia,serif;color:#a6362c;text-shadow:0 1px #fff4a9}.cell.scatter{background:radial-gradient(#fff8ab,#d78a32)}.cell.scatter:after{content:'SCATTER';position:absolute;bottom:5px;color:#683614;font-size:8px;font-weight:950;letter-spacing:.4px}.cell.winning{outline:2px solid #ffee91;outline-offset:-2px;box-shadow:inset 0 0 12px #fdaa29,0 0 8px #ffcf69;z-index:1}.rolling .cell{animation:roll .12s linear infinite;filter:blur(1px)}@keyframes roll{from{transform:translateY(-4px)}to{transform:translateY(4px)}}.message{min-height:46px;display:grid;place-items:center;background:#241d1b;text-align:center;padding:8px;font-size:13px;color:#f6d8a6;font-weight:750}.stats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);background:var(--panel);border-radius:13px;margin-top:12px;padding:13px 4px;text-align:center}.stats>div+div{border-left:1px solid var(--line)}.stats small{display:block;font-size:10px;letter-spacing:1px;color:var(--muted);font-weight:750;margin-bottom:5px}.stats strong{font-size:20px;font-variant-numeric:tabular-nums}.stats strong.win{color:var(--green)}.controls{display:flex;align-items:center;justify-content:center;gap:12px;margin:14px 0}.step{background:#263747;border:1px solid #405365;border-radius:12px;width:48px;height:48px;font-size:25px}.spin{background:linear-gradient(#a8f69b,#76d96e);color:#102b1a;border-radius:50%;width:100px;height:100px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 5px 0 #3c8941,0 0 0 5px #263b32;font-weight:900;letter-spacing:1px}.spin span{font-size:38px;line-height:1}.side{min-width:68px;text-align:center}.side small{display:block;color:var(--muted);font-size:10px;margin-top:5px}.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}.secondary{background:#233347;border:1px solid #3a4d60;border-radius:10px;padding:12px 6px;font-size:12px;font-weight:750}.secondary.accent{color:var(--gold)}.info{margin-top:12px;border:1px solid var(--line);border-radius:12px;padding:12px;background:#182534;color:var(--muted);font-size:12px;line-height:1.55}.info summary{cursor:pointer;color:#e0eaf2;font-weight:750}.foot{text-align:center;color:#8091a1;font-size:11px;margin:14px 0 0}.bonus .hero{background:radial-gradient(ellipse at 50% 28%,#ffe9a4,#ad6429 40%,#47321d 75%)}.bonus .feature{background:#3e321d}.bonus .game{box-shadow:0 0 22px #e5a34955}.overlay{position:fixed;inset:0;background:#0b101acc;display:grid;place-items:center;padding:24px;z-index:10}.overlay[hidden]{display:none}.modal{width:min(100%,380px);background:linear-gradient(#49391e,#1a202b);border:2px solid #d2a85c;border-radius:20px;text-align:center;padding:28px 20px;box-shadow:0 15px 60px #000a}.modal .big{font:bold 45px Georgia,serif;color:var(--gold);margin:6px 0}.modal p{color:#e7d8b9}.modal button{background:var(--green);color:#102819;border-radius:10px;width:100%;padding:14px;font-weight:900}.modal .eyebrow{font-size:11px;letter-spacing:3px;color:var(--gold)}@media(prefers-reduced-motion:reduce){.rolling .cell{animation:none;filter:none}}
-</style></head><body><main class="app" id="app"><header><div class="mark"><span>♠</span> Canyon Arcade</div><div class="balance"><small>DEMO</small><span id="balance">10.00</span></div></header><div class="tag">INTERFACE STUDY · NO REAL MONEY</div><section class="game"><div class="hero"><div class="buffalo">🦬</div><h1>BUFFALO B'S CANYON</h1><div class="sub">GOLDEN FREE SPINS</div></div><div class="feature"><span id="mode">BASE GAME</span><b id="feature">3 SCATTERS = 8 FREE SPINS</b></div><div class="reels" id="reels" aria-label="Five slot reels"></div><div class="message" id="message" aria-live="polite">Three sun symbols open the bonus round.</div></section><div class="stats"><div><small>PLAY CREDITS</small><strong id="credit">10.00</strong></div><div><small>SPIN COST</small><strong id="bet">0.20</strong></div><div><small>LAST WIN</small><strong class="win" id="win">0.00</strong></div></div><div class="controls"><div class="side"><button class="step" id="minus" aria-label="Decrease spin cost">−</button><small>LOWER</small></div><button class="spin" id="spin"><span>⟳</span><b id="spinText">SPIN</b></button><div class="side"><button class="step" id="plus" aria-label="Increase spin cost">+</button><small>HIGHER</small></div></div><div class="actions"><button class="secondary accent" id="demo">Preview free spins</button><button class="secondary" id="reset">Reset to 10 credits</button></div><details class="info"><summary>How this mockup works</summary><p>Three or more sun scatters trigger eight free spins. Three or more matching symbols on any horizontal line, starting at the left, pay demo credits. Free spins don't deduct credits and line wins are doubled. The preview button starts a bonus directly, for interface testing. All rules, odds and symbols here are invented for this prototype, not copied from a commercial game.</p></details><div class="foot">Standalone simulation. No purchases, prizes, accounts or cash redemption.</div></main><div class="overlay" id="overlay" hidden><div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="eyebrow" id="eyebrow">BONUS ROUND</div><div class="big" id="modalTitle">8 FREE SPINS</div><p id="modalText">No credits deducted. Line wins are doubled.</p><button id="modalButton">START FREE SPINS</button></div></div><script>
-const $=id=>document.getElementById(id), symbols=['🦬','🦅','🐺','🐎','A','K','Q','J','☀️'], weights=[4,7,9,10,14,16,18,18,4], rates=[12,8,6,5,3,2.5,2,1.5];let credit=1000, bets=[10,20,50,100,200],bi=1,free=0,bonusTotal=0,bonusBet=20,last=0,busy=false,modal=false;let grid=Array.from({length:5},()=>Array.from({length:3},pick));function pick(){let x=Math.random()*weights.reduce((a,b)=>a+b,0);for(let i=0;i<weights.length;i++){x-=weights[i];if(x<0)return i}return 0}function money(n){return(n/100).toFixed(2)}function draw(g,marked=new Set()){ $('reels').innerHTML=g.map((col,c)=>`<div class="reel">${col.map((s,r)=>`<div class="cell ${s===8?'scatter':''} ${marked.has(c+','+r)?'winning':''}">${s>=4&&s<=7?'<span class="letter">'+symbols[s]+'</span>':symbols[s]}</div>`).join('')}</div>`).join('')}function update(){ $('balance').textContent=$('credit').textContent=money(credit);$('bet').textContent=money(free?bonusBet:bets[bi]);$('win').textContent=money(last);$('mode').textContent=free?'FREE SPINS · '+free+' LEFT':'BASE GAME';$('feature').textContent=free?'BONUS WIN '+money(bonusTotal):'3 SCATTERS = 8 FREE SPINS';$('spinText').textContent=free?'FREE SPIN':'SPIN';$('app').classList.toggle('bonus',free>0);$('spin').disabled=busy||modal||(!free&&credit<bets[bi]);$('minus').disabled=busy||modal||free>0||bi===0;$('plus').disabled=busy||modal||free>0||bi===bets.length-1;$('demo').disabled=busy||modal||free>0;$('reset').disabled=busy||modal}function showModal(title,msg,label,heading){modal=true;$('modalTitle').textContent=title;$('modalText').textContent=msg;$('modalButton').textContent=label;$('eyebrow').textContent=heading;$('overlay').hidden=false;update();$('modalButton').focus()}$('modalButton').onclick=()=>{modal=false;$('overlay').hidden=true;update();$('spin').focus()};function startBonus(){free=8;bonusBet=bets[bi];bonusTotal=0;$('message').textContent='Free spins are ready.';showModal('8 FREE SPINS','No credits deducted. Line wins are doubled.','START FREE SPINS','BONUS ROUND')}async function spin(){if(busy||modal||(!free&&credit<bets[bi]))return;busy=true;let wasFree=free>0, stake=wasFree?bonusBet:bets[bi];if(!wasFree)credit-=stake;last=0;$('message').textContent='Spinning…';update();$('reels').classList.add('rolling');for(let i=0;i<8;i++){draw(Array.from({length:5},()=>Array.from({length:3},pick)));await new Promise(r=>setTimeout(r,65+i*10))}grid=Array.from({length:5},()=>Array.from({length:3},pick));let marks=new Set(),win=0,sc=0;for(let r=0;r<3;r++){let s=grid[0][r],n=1;while(n<5&&grid[n][r]===s)n++;if(s!==8&&n>=3){win+=Math.round(stake*rates[s]*(n===3?1:n===4?3:8)*(wasFree?2:1));for(let c=0;c<n;c++)marks.add(c+','+r)}}for(let c=0;c<5;c++)for(let r=0;r<3;r++)if(grid[c][r]===8)sc++;if(sc>=3&&!wasFree)for(let c=0;c<5;c++)for(let r=0;r<3;r++)if(grid[c][r]===8)marks.add(c+','+r);last=win;credit+=win;if(wasFree){free--;bonusTotal+=win}$('reels').classList.remove('rolling');draw(grid,marks);busy=false;$('message').textContent=win?'Line win: '+money(win)+' demo credits':wasFree?'Free spin completed.':'No line win this spin.';if(!wasFree&&sc>=3)startBonus();else if(wasFree&&free===0)showModal(money(bonusTotal),'Total demo credits won over eight free spins.','RETURN TO GAME','BONUS COMPLETE');update()}$('spin').onclick=spin;$('minus').onclick=()=>{bi--;update()};$('plus').onclick=()=>{bi++;update()};$('demo').onclick=startBonus;$('reset').onclick=()=>{credit=1000;bi=1;free=0;bonusTotal=0;last=0;grid=Array.from({length:5},()=>Array.from({length:3},pick));draw(grid);$('message').textContent='Three sun symbols open the bonus round.';update()};draw(grid);update();
-</script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Buffalo B's Sugar High | Demo</title>
+<style>
+*{box-sizing:border-box}
+:root{
+  color-scheme:dark;
+  --bg:#121b28;
+  --panel:#1a2938;
+  --panel2:#0f1823;
+  --line:#33495d;
+  --green:#92ee86;
+  --gold:#ffd68a;
+  --pink:#ff93d7;
+  --text:#f5f8fb;
+  --muted:#9cb1c4;
+}
+body{
+  margin:0;
+  min-height:100vh;
+  background:radial-gradient(circle at 50% 0,#2b4156,#101722 68%);
+  color:var(--text);
+  font:15px/1.35 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+}
+button{font:inherit;color:inherit;border:0;cursor:pointer}
+button:disabled{opacity:.45;cursor:not-allowed}
+button:focus-visible{outline:3px solid #fff;outline-offset:2px}
+.app{max-width:560px;margin:auto;padding:14px 14px 32px}
+header{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:4px 0 14px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900;letter-spacing:-.4px;font-size:17px}
+.brand .icon{font-size:24px}
+.wallet{background:#0d1621;border:1px solid var(--line);border-radius:12px;padding:10px 13px;font-weight:800;font-variant-numeric:tabular-nums}
+.wallet small{font-size:11px;color:var(--green);margin-right:6px}
+.tag{text-align:center;font-size:10px;letter-spacing:2px;color:var(--muted);font-weight:800;margin-bottom:10px}
+.game{border:1px solid #916646;border-radius:22px;overflow:hidden;background:#2e2130;box-shadow:0 15px 42px #0007}
+.hero{position:relative;padding:20px 14px 16px;text-align:center;background:radial-gradient(circle at 50% 18%,#ffe8a1 0,#ff8ad2 23%,#7f4fcc 52%,#251d39 100%);overflow:hidden}
+.hero:before,.hero:after{content:'';position:absolute;bottom:-10px;width:44%;height:58%;background:linear-gradient(#503a39,#281d2d);opacity:.7;clip-path:polygon(0 100%,0 58%,12% 46%,21% 52%,28% 34%,41% 41%,52% 14%,60% 38%,73% 21%,88% 44%,100% 34%,100% 100%)}
+.hero:before{left:0}
+.hero:after{right:0;transform:scaleX(-1)}
+.hero>*{position:relative;z-index:1}
+.hero .buff{font-size:54px;line-height:1;filter:drop-shadow(0 3px 5px #36131f)}
+.hero h1{margin:4px 0 2px;font:bold 34px/1 Georgia,serif;color:#fff6d3;letter-spacing:.6px;text-shadow:0 2px #82305d,0 4px #4f2350}
+.hero .sub{font-size:11px;letter-spacing:3px;font-weight:900;color:#ffe2f6}
+.feature{display:flex;justify-content:space-between;gap:8px;align-items:center;padding:10px 12px;background:#171f27;border-top:1px solid #9f6f51;border-bottom:1px solid #9f6f51;font-size:11px;letter-spacing:1px;font-weight:850}
+.feature b{color:var(--gold);text-align:right}
+.gridWrap{padding:10px;background:linear-gradient(#7145a2,#44295f 24%,#2d2134 24%,#2d2134)}
+.board{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;touch-action:manipulation}
+.cell{
+  aspect-ratio:1/1;
+  border-radius:12px;
+  border:1px solid #8f69a8;
+  background:radial-gradient(circle at 35% 28%,#fff4ff,#f4dcff 45%,#d89de7 100%);
+  display:grid;place-items:center;
+  font-size:clamp(22px,8vw,38px);
+  user-select:none;
+  position:relative;
+  box-shadow:inset 0 0 10px #7f44a84f;
+  transition:transform .12s ease, box-shadow .12s ease, opacity .18s ease;
+}
+.cell.selected{outline:3px solid #fff2a7;outline-offset:-2px;transform:scale(1.04);box-shadow:inset 0 0 10px #7f44a84f,0 0 0 2px #efbf52,0 0 16px #ffd67588}
+.cell.match{animation:flash .28s ease alternate 2;box-shadow:0 0 0 2px #fff4a7 inset,0 0 16px #ffd17a}
+.cell.scatter{background:radial-gradient(circle at 35% 28%,#fffec9,#ffd485 58%,#db9a37 100%)}
+.cell.fall{animation:drop .18s ease}
+@keyframes flash{from{transform:scale(1)}to{transform:scale(1.06)}}
+@keyframes drop{from{transform:translateY(-14px)}to{transform:translateY(0)}}
+.message{min-height:52px;background:#231d2c;padding:10px 12px;text-align:center;color:#f8d7f2;font-weight:800;display:grid;place-items:center}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);background:var(--panel);border-radius:14px;margin-top:12px;padding:12px 4px;text-align:center}
+.stats>div+div{border-left:1px solid var(--line)}
+.stats small{display:block;color:var(--muted);font-size:10px;letter-spacing:1px;font-weight:800;margin-bottom:5px}
+.stats strong{font-size:19px;font-variant-numeric:tabular-nums}
+.stats strong.win{color:var(--green)}
+.controls{display:flex;align-items:center;justify-content:center;gap:12px;margin:15px 0}
+.side{min-width:74px;text-align:center}
+.side small{display:block;margin-top:5px;color:var(--muted);font-size:10px}
+.step{width:48px;height:48px;border-radius:12px;background:#233648;border:1px solid #426076;font-size:26px}
+.play{width:108px;height:108px;border-radius:50%;background:linear-gradient(#ffa4e2,#ff83c7);color:#3a1334;display:flex;flex-direction:column;justify-content:center;align-items:center;font-weight:950;box-shadow:0 5px 0 #bf5493,0 0 0 5px #37273d;letter-spacing:1px}
+.play span{font-size:36px;line-height:1}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.secondary{background:#213548;border:1px solid #3a5368;border-radius:10px;padding:12px 8px;font-size:12px;font-weight:800}
+.secondary.accent{color:var(--gold)}
+details.info{margin-top:12px;border:1px solid var(--line);border-radius:12px;padding:12px;background:#182534;color:var(--muted);font-size:12px;line-height:1.55}
+.info summary{cursor:pointer;color:#e7eef4;font-weight:800}
+.foot{text-align:center;color:#7f92a4;font-size:11px;margin:14px 0 0}
+.bonus .hero{background:radial-gradient(circle at 50% 18%,#fff2b8 0,#ffa0e6 22%,#c06dff 47%,#302145 100%)}
+.bonus .feature{background:#35203a}
+.bonus .game{box-shadow:0 0 28px #f3b6ff55}
+.overlay{position:fixed;inset:0;background:#0b101acc;display:grid;place-items:center;padding:24px;z-index:10}
+.overlay[hidden]{display:none}
+.modal{width:min(100%,380px);background:linear-gradient(#533464,#1a202b);border:2px solid #ffc57c;border-radius:20px;text-align:center;padding:28px 20px;box-shadow:0 15px 60px #000a}
+.modal .eyebrow{font-size:11px;letter-spacing:3px;color:var(--gold)}
+.modal .big{font:bold 40px Georgia,serif;color:#fff2c8;margin:6px 0}
+.modal p{color:#eed7f7}
+.modal button{background:var(--green);color:#11301c;border-radius:10px;width:100%;padding:14px;font-weight:950}
+@media (prefers-reduced-motion:reduce){.cell,.cell.match,.cell.fall{transition:none;animation:none}}
+</style>
+</head>
+<body>
+<main class="app" id="app">
+  <header>
+    <div class="brand"><span class="icon">🍭</span> Sugar Arcade</div>
+    <div class="wallet"><small>DEMO</small><span id="balance">10.00</span></div>
+  </header>
+  <div class="tag">INTERFACE STUDY · NO REAL MONEY</div>
+
+  <section class="game">
+    <div class="hero">
+      <div class="buff">🦬🍬</div>
+      <h1>BUFFALO B'S SUGAR HIGH</h1>
+      <div class="sub">CASCADING CLUSTER BONUS</div>
+    </div>
+    <div class="feature">
+      <span id="mode">BASE GAME</span>
+      <b id="feature">3 LOLLIPOPS = 8 FREE DROPS</b>
+    </div>
+    <div class="gridWrap">
+      <div class="board" id="board" aria-label="7 by 7 match board"></div>
+    </div>
+    <div class="message" id="message" aria-live="polite">Tap PLAY to drop a candy board and trigger cascades.</div>
+  </section>
+
+  <div class="stats">
+    <div><small>CREDITS</small><strong id="credit">10.00</strong></div>
+    <div><small>DROP COST</small><strong id="bet">0.20</strong></div>
+    <div><small>LAST WIN</small><strong class="win" id="win">0.00</strong></div>
+    <div><small>BONUS MULTI</small><strong id="mult">x1</strong></div>
+  </div>
+
+  <div class="controls">
+    <div class="side">
+      <button class="step" id="minus" aria-label="Decrease drop cost">−</button>
+      <small>LOWER</small>
+    </div>
+    <button class="play" id="play"><span>🍬</span><b id="playText">PLAY</b></button>
+    <div class="side">
+      <button class="step" id="plus" aria-label="Increase drop cost">+</button>
+      <small>HIGHER</small>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="secondary accent" id="demo">Preview free drops</button>
+    <button class="secondary" id="reset">Reset to 10 credits</button>
+  </div>
+
+  <details class="info">
+    <summary>How this mockup works</summary>
+    <p>Each play generates a fresh 7×7 candy board. Orthogonally connected clusters of four or more matching symbols pay demo credits, vanish, and let the board cascade. Three or more lollipop scatters trigger eight free drops. In the bonus, no credits are deducted and the multiplier increases by 1 after every winning cascade. This is an original prototype inspired by sweep-casino style interfaces, not a copy of any commercial game.</p>
+  </details>
+
+  <div class="foot">Standalone simulation. No purchases, prizes, accounts or cash redemption.</div>
+</main>
+
+<div class="overlay" id="overlay" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="eyebrow" id="eyebrow">BONUS ROUND</div>
+    <div class="big" id="modalTitle">8 FREE DROPS</div>
+    <p id="modalText">No credits deducted. The multiplier climbs on every winning cascade.</p>
+    <button id="modalButton">START FREE DROPS</button>
+  </div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const cols = 7, rows = 7;
+const symbols = [
+  {e:'🍬', cls:'', value:6, weight:18, name:'Candy'},
+  {e:'🧁', cls:'', value:7, weight:17, name:'Cupcake'},
+  {e:'🍩', cls:'', value:8, weight:15, name:'Donut'},
+  {e:'💎', cls:'', value:10, weight:12, name:'Gem'},
+  {e:'🌵', cls:'', value:9, weight:12, name:'Cactus'},
+  {e:'🦬', cls:'', value:12, weight:8, name:'Buffalo'},
+  {e:'🍭', cls:'scatter', value:0, weight:6, name:'Lollipop'}
+];
+const totalWeight = symbols.reduce((a,s)=>a+s.weight,0);
+const bets = [0.10,0.20,0.50,1.00,2.00];
+let betIndex = 1;
+let credit = 10.00;
+let lastWin = 0;
+let freeDrops = 0;
+let bonusTotal = 0;
+let busy = false;
+let modalOpen = false;
+let bonusMultiplier = 1;
+let board = [];
+let selected = null;
+
+function randSymbol(){
+  let roll = Math.random() * totalWeight;
+  for(let i=0;i<symbols.length;i++){
+    roll -= symbols[i].weight;
+    if(roll < 0) return i;
+  }
+  return 0;
+}
+
+function money(n){ return Number(n).toFixed(2); }
+function cloneBoard(src){ return src.map(row => row.slice()); }
+
+function newBoard(){
+  return Array.from({length:rows},()=>Array.from({length:cols},()=>randSymbol()));
+}
+
+function drawBoard(marked=new Set()){
+  $('board').innerHTML = board.map((row,r)=> row.map((id,c)=>{
+    const cell = symbols[id];
+    const classes = ['cell', cell.cls];
+    if(marked.has(r+','+c)) classes.push('match');
+    if(selected && selected.r===r && selected.c===c) classes.push('selected');
+    return `<button class="${classes.join(' ')}" data-r="${r}" data-c="${c}" aria-label="${cell.name}">${cell.e}</button>`;
+  }).join('')).join('');
+}
+
+function updateUI(){
+  $('balance').textContent = $('credit').textContent = money(credit);
+  $('bet').textContent = money(freeDrops ? bets[betIndex] : bets[betIndex]);
+  $('win').textContent = money(lastWin);
+  $('mult').textContent = 'x' + bonusMultiplier;
+  $('mode').textContent = freeDrops ? `FREE DROPS · ${freeDrops} LEFT` : 'BASE GAME';
+  $('feature').textContent = freeDrops ? `BONUS WIN ${money(bonusTotal)}` : '3 LOLLIPOPS = 8 FREE DROPS';
+  $('playText').textContent = freeDrops ? 'FREE' : 'PLAY';
+  $('app').classList.toggle('bonus', freeDrops > 0);
+  $('play').disabled = busy || modalOpen || (!freeDrops && credit < bets[betIndex]);
+  $('minus').disabled = busy || modalOpen || freeDrops > 0 || betIndex === 0;
+  $('plus').disabled = busy || modalOpen || freeDrops > 0 || betIndex === bets.length - 1;
+  $('demo').disabled = busy || modalOpen || freeDrops > 0;
+  $('reset').disabled = busy || modalOpen;
+}
+
+function showModal(title,msg,button,eyebrow='BONUS ROUND'){
+  modalOpen = true;
+  $('modalTitle').textContent = title;
+  $('modalText').textContent = msg;
+  $('modalButton').textContent = button;
+  $('eyebrow').textContent = eyebrow;
+  $('overlay').hidden = false;
+  updateUI();
+  $('modalButton').focus();
+}
+
+function hideModal(){
+  modalOpen = false;
+  $('overlay').hidden = true;
+  updateUI();
+  $('play').focus();
+}
+
+function startBonus(){
+  freeDrops = 8;
+  bonusTotal = 0;
+  bonusMultiplier = 1;
+  $('message').textContent = 'Free drops are ready.';
+  showModal('8 FREE DROPS','No credits deducted. The multiplier increases after every winning cascade.','START FREE DROPS');
+}
+
+function neighbors(r,c){
+  return [[r-1,c],[r+1,c],[r,c-1],[r,c+1]].filter(([rr,cc]) => rr>=0 && rr<rows && cc>=0 && cc<cols);
+}
+
+function findClusters(src){
+  const seen = Array.from({length:rows},()=>Array(cols).fill(false));
+  const clusters = [];
+  for(let r=0;r<rows;r++){
+    for(let c=0;c<cols;c++){
+      if(seen[r][c]) continue;
+      const id = src[r][c];
+      seen[r][c] = true;
+      if(id === 6) continue;
+      const queue = [[r,c]];
+      const group = [[r,c]];
+      while(queue.length){
+        const [cr,cc] = queue.pop();
+        for(const [nr,nc] of neighbors(cr,cc)){
+          if(!seen[nr][nc] && src[nr][nc] === id){
+            seen[nr][nc] = true;
+            queue.push([nr,nc]);
+            group.push([nr,nc]);
+          } else if(!seen[nr][nc]) {
+            // leave for later
+          }
+        }
+      }
+      if(group.length >= 4) clusters.push({id,cells:group});
+    }
+  }
+  return clusters;
+}
+
+function countScatters(src){
+  let count = 0;
+  for(let r=0;r<rows;r++) for(let c=0;c<cols;c++) if(src[r][c] === 6) count++;
+  return count;
+}
+
+function removeClusters(src, clusters){
+  const next = cloneBoard(src);
+  for(const cluster of clusters){
+    for(const [r,c] of cluster.cells) next[r][c] = null;
+  }
+  for(let c=0;c<cols;c++){
+    const compact = [];
+    for(let r=rows-1;r>=0;r--) if(next[r][c] !== null) compact.push(next[r][c]);
+    for(let r=rows-1, i=0; r>=0; r--, i++) next[r][c] = i < compact.length ? compact[i] : randSymbol();
+  }
+  return next;
+}
+
+function marksFromClusters(clusters){
+  const set = new Set();
+  clusters.forEach(cluster => cluster.cells.forEach(([r,c]) => set.add(r+','+c)));
+  return set;
+}
+
+async function delay(ms){ return new Promise(res => setTimeout(res, ms)); }
+
+async function playRound(){
+  if(busy || modalOpen || (!freeDrops && credit < bets[betIndex])) return;
+  busy = true;
+  selected = null;
+  const stake = bets[betIndex];
+  const inBonus = freeDrops > 0;
+  if(!inBonus) credit = Math.max(0, credit - stake);
+  lastWin = 0;
+  bonusMultiplier = inBonus ? bonusMultiplier : 1;
+  $('message').textContent = inBonus ? 'Free drop in progress…' : 'Dropping candies…';
+  updateUI();
+
+  board = newBoard();
+  drawBoard();
+  await delay(160);
+
+  const scatterCount = countScatters(board);
+  let totalWin = 0;
+  let cascade = 0;
+
+  while(true){
+    const clusters = findClusters(board);
+    if(!clusters.length) break;
+    cascade++;
+    const marks = marksFromClusters(clusters);
+    drawBoard(marks);
+    let cascadeWin = 0;
+    for(const cluster of clusters){
+      const base = symbols[cluster.id].value;
+      cascadeWin += ((cluster.cells.length - 3) * base * stake * (inBonus ? bonusMultiplier : 1));
+    }
+    cascadeWin = Number(cascadeWin.toFixed(2));
+    totalWin += cascadeWin;
+    $('message').textContent = `Cascade ${cascade}: won ${money(cascadeWin)} demo credits.`;
+    await delay(360);
+    board = removeClusters(board, clusters);
+    if(inBonus) bonusMultiplier += 1;
+    drawBoard();
+    updateUI();
+    await delay(220);
+  }
+
+  totalWin = Number(totalWin.toFixed(2));
+  lastWin = totalWin;
+  credit = Number((credit + totalWin).toFixed(2));
+  if(inBonus){
+    freeDrops -= 1;
+    bonusTotal = Number((bonusTotal + totalWin).toFixed(2));
+  }
+
+  if(totalWin > 0){
+    $('message').textContent = `Total win this drop: ${money(totalWin)} demo credits.`;
+  } else {
+    $('message').textContent = inBonus ? 'No winning cluster on that free drop.' : 'No winning cluster this round.';
+  }
+
+  busy = false;
+
+  if(!inBonus && scatterCount >= 3){
+    drawBoard(new Set(Array.from({length:rows*cols}, (_,i)=>{ const r=Math.floor(i/cols), c=i%cols; return board[r][c]===6 ? r+','+c : null; }).filter(Boolean)));
+    $('message').textContent = `${scatterCount} lollipops triggered the bonus!`;
+    startBonus();
+  } else if(inBonus && freeDrops === 0){
+    showModal(money(bonusTotal), 'Total demo credits won over eight free drops.', 'RETURN TO GAME', 'BONUS COMPLETE');
+  }
+  updateUI();
+}
+
+$('play').addEventListener('click', playRound);
+$('minus').addEventListener('click', ()=>{ if(betIndex>0){ betIndex--; updateUI(); }});
+$('plus').addEventListener('click', ()=>{ if(betIndex<bets.length-1){ betIndex++; updateUI(); }});
+$('demo').addEventListener('click', startBonus);
+$('reset').addEventListener('click', ()=>{
+  credit = 10.00;
+  betIndex = 1;
+  lastWin = 0;
+  freeDrops = 0;
+  bonusTotal = 0;
+  bonusMultiplier = 1;
+  busy = false;
+  modalOpen = false;
+  selected = null;
+  $('overlay').hidden = true;
+  board = newBoard();
+  drawBoard();
+  $('message').textContent = 'Tap PLAY to drop a candy board and trigger cascades.';
+  updateUI();
+});
+$('modalButton').addEventListener('click', hideModal);
+$('overlay').addEventListener('click', e=>{ if(e.target === $('overlay')) hideModal(); });
+document.addEventListener('keydown', e=>{ if(e.key === 'Escape' && modalOpen) hideModal(); });
+
+board = newBoard();
+drawBoard();
+updateUI();
+</script>
+</body>
+</html>
